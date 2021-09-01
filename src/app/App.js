@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import './App.css'
+import '../css/App.css'
 import Documenu from 'documenu'
 import axios from 'axios'
+import AllUsers from '../features/allUsers/AllUsers'
 
-const App = () => {
+const App = (props) => {
+    const { state, dispatch } = props
     Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
     let [newUsername, setNewUsername] = useState('')
     let [newPassword, setNewPassword] = useState('')
@@ -55,7 +57,7 @@ const App = () => {
             <input type="password" placeholder="password" onChange={handleChangeNewPassword}/>
             <input type="submit" value="submit"/>
         </form>
-
+        <AllUsers />
         </>
     )
 }
