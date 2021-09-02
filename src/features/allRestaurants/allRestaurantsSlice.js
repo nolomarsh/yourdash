@@ -1,5 +1,3 @@
-
-import { dispatch } from 'react-redux'
 import Documenu from 'documenu'
 
 const initialState = []

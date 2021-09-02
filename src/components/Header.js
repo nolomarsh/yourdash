@@ -28,12 +28,22 @@ const Header = () => {
         e.target.reset()
     }
 
+    const logOut = () => {
+        dispatch(setCurrentUser({}))
+        localStorage.removeItem('currentUser')
+    }
+
+    const viewChangeHandler = e => {
+        dispatch(setCurrentView(e.target.name))
+    }
+
     useEffect(() => {
         if (localStorage.getItem('currentUser')){
-            let currentUser = JSON.parse(localStorage.getItem('currentUser'))
-            console.log(currentUser)
+            let storedUser = JSON.parse(localStorage.getItem('currentUser'))
+            dispatch(setCurrentUser(storedUser))
+            setCurrentView('allRestaurants')
         }
-    })
+    },[])
 
     return (
         <header>
@@ -43,8 +53,15 @@ const Header = () => {
                 <input type='submit' value='Search' />
             </form>
             <div className='btnBox'>
-                <button>Sign In</button>
-                <button>Sign Up</button>
+                {currentUser.username ?
+                    <button onClick={logOut}>Log Out</button>
+                    :
+                    <>
+                        <button name='login' onClick={viewChangeHandler}>Log In</button>
+                        <button name='signup' onClick={viewChangeHandler}>Sign Up</button>
+                    </>
+                }
+
             </div>
         </header>
     )

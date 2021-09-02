@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Documenu from 'documenu'
-import { setRestaurants, selectAllRestaurants, setRestaurantsByZip } from './allRestaurantsSlice.js'
+import { selectAllRestaurants, setRestaurantsByZip } from './allRestaurantsSlice.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCurrentZip } from '../currentZip/currentZipSlice.js'
 
-import Restaurant from '../../components/Restaurant'
+import RestaurantCard from './RestaurantCard'
 
 
 
@@ -30,7 +30,7 @@ const AllRestaurants = props => {
     return (
         <div id='allRestaurantContainer'>
             {allRestaurants.map((restaurant) => {return(
-                <Restaurant
+                <RestaurantCard
                     restaurant={restaurant}
                     key={restaurant.restaurant_id}
                 />

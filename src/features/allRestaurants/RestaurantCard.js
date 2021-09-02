@@ -1,10 +1,10 @@
 import {useSelector, useDispatch} from 'react-redux'
 
-const Restaurant = props => {
+const RestaurantCard = props => {
 
     return (
         <p>{props.restaurant.restaurant_name}</p>
     )
 }
 
-export default Restaurant
+export default RestaurantCard

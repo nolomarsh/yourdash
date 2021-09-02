@@ -6,8 +6,9 @@ import axios from 'axios'
 import { setCurrentZip } from '../currentZip/currentZipSlice.js'
 import { setCurrentUser } from '../currentUser/currentUserSlice.js'
 import { selectAllUsers, setUsers, addUser } from './allUsersSlice.js'
+import { setCurrentView } from '../currentView/currentViewSlice.js'
 
-const NewUser = () => {
+const SignUp = () => {
     const dispatch = useDispatch()
     const allUsers = useSelector(selectAllUsers)
 
@@ -33,6 +34,7 @@ const NewUser = () => {
                         dispatch(setCurrentUser(response.data))
                         dispatch(setCurrentZip(response.data.zipCode))
                         setErrorMessage('')
+                        setCurrentView('allRestaurants')
                         localStorage.setItem('currentUser', JSON.stringify(response.data))
                     },(error) => {
                         if (allUsers.map(user => user.username).includes(newUser.username)) {
@@ -71,4 +73,4 @@ const NewUser = () => {
     )
 }
 
-export default NewUser
+export default SignUp
