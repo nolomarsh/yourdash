@@ -12,6 +12,7 @@ import ShowRestaurant from '../features/components/ShowRestaurant'
 
 import { selectCurrentZip } from '../features/currentZip/currentZipSlice.js'
 import { selectCurrentView } from '../features/currentView/currentViewSlice.js'
+import { selectAllRestaurants } from '../features/allRestaurants/allRestaurantsSlice.js'
 import { loadUsers } from '../features/allUsers/allUsersSlice.js'
 
 const App = (props) => {
@@ -19,6 +20,7 @@ const App = (props) => {
     const [showRestaurant, setShowRestaurant] = useState({})
     const currentZip = useSelector(selectCurrentZip)
     const currentView = useSelector(selectCurrentView)
+    const allRestaurants = useSelector(selectAllRestaurants)
 
     return (
         <>
@@ -35,7 +37,7 @@ const App = (props) => {
                     setShowRestaurant={setShowRestaurant}
                 />
             }
-            {currentView === 'showRestaurant' &&
+            {currentView === 'showRestaurant' && allRestaurants.length > 0 &&
                 <ShowRestaurant
                     restaurant={showRestaurant}
                     setShowRestaurant={setShowRestaurant}

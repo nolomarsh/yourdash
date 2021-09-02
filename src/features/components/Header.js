@@ -41,7 +41,8 @@ const Header = () => {
         if (localStorage.getItem('currentUser')){
             let storedUser = JSON.parse(localStorage.getItem('currentUser'))
             dispatch(setCurrentUser(storedUser))
-            setCurrentView('allRestaurants')
+            dispatch(setCurrentZip(storedUser.zipCode))
+            dispatch(setCurrentView('allRestaurants'))
         }
     },[])
 
