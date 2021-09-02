@@ -59,7 +59,7 @@ const SignUp = () => {
     },[])
 
     return (
-        <div className='login'>
+        <div className='signup'>
             <form onSubmit={signupFormSubmitHandler}>
                 <label>Username: <input type='text' name='username' onChange={formChangeHandler} required /></label>
                 <label>Password: <input type='password' name='password' onChange={formChangeHandler} required /></label>

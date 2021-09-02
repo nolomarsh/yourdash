@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Documenu from 'documenu'
 
-import { selectCurrentView, setCurrentView } from '../features/currentView/currentViewSlice.js'
-import { selectCurrentZip, setCurrentZip } from "../features/currentZip/currentZipSlice.js"
-import { selectCurrentUser, setCurrentUser } from '../features/currentUser/currentUserSlice.js'
-import { setRestaurantsByZip } from '../features/allRestaurants/allRestaurantsSlice.js'
+import { selectCurrentView, setCurrentView } from '../currentView/currentViewSlice.js'
+import { selectCurrentZip, setCurrentZip } from "../currentZip/currentZipSlice.js"
+import { selectCurrentUser, setCurrentUser } from '../currentUser/currentUserSlice.js'
+import { setRestaurantsByZip } from '../allRestaurants/allRestaurantsSlice.js'
 
 const Header = () => {
     Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')

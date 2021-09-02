@@ -33,6 +33,7 @@ const AllRestaurants = props => {
                 <RestaurantCard
                     restaurant={restaurant}
                     key={restaurant.restaurant_id}
+                    setShowRestaurant={props.setShowRestaurant}
                 />
             )})}
         </div>
