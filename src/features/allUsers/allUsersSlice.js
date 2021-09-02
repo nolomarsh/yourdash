@@ -13,7 +13,7 @@ export const allUsersReducer = (allUsers = initialState, action) => {
         case 'allUsers/removeUser':
             return allUsers.filter(user => user.id !== action.payload.id)
         default:
-            return allUsers;
+            return allUsers
     }
 }
 
