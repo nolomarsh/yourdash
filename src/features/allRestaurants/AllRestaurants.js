@@ -1,27 +1,30 @@
 import { useState, useEffect } from 'react'
 import Documenu from 'documenu'
-import { setData, selectAllRestaurants } from './allRestaurantsSlice.js'
+import { setRestaurants, selectAllRestaurants, setRestaurantsByZip } from './allRestaurantsSlice.js'
 import { useSelector, useDispatch } from 'react-redux'
+import { selectCurrentZip } from '../currentZip/currentZipSlice.js'
 
 import Restaurant from '../../components/Restaurant'
 
+
+
 const AllRestaurants = props => {
-    const [pageNum, setPageNum] = useState(1)
+    // const [pageNum, setPageNum] = useState(1)
     const dispatch = useDispatch()
     const allRestaurants = useSelector(selectAllRestaurants)
+    const currentZip = useSelector(selectCurrentZip)
 
     Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
 
-    const getRestaurantsByZip = zipCode => {
-        Documenu.Restaurants.getByZipCode(zipCode, {fullmenu: true, size:50, page:pageNum})
-        .then((response) => {
-            dispatch(setData(response.data))
-            setPageNum(pageNum + 1)
-        })
-    }
+    // const getRestaurantsByZip = zipCode => {
+    //     Documenu.Restaurants.getByZipCode(zipCode, {fullmenu: true})
+    //     .then((response) => {
+    //         dispatch(setData(response.data))
+    //     })
+    // }
 
     useEffect(() => {
-        getRestaurantsByZip(49002)
+        setRestaurantsByZip(currentZip, dispatch)
     }, [])
 
     return (

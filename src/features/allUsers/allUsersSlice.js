@@ -5,7 +5,7 @@ const initialState = []
 
 export const allUsersReducer = (allUsers = initialState, action) => {
     switch(action.type) {
-        case 'allUsers/setData':
+        case 'allUsers/set':
             return action.payload
         case 'allUsers/addUser':
             console.log('received: ', action.payload)
@@ -17,9 +17,9 @@ export const allUsersReducer = (allUsers = initialState, action) => {
     }
 }
 
-export const setData = (data) => {
+export const setUsers = (data) => {
     return {
-        type: 'allUsers/setData',
+        type: 'allUsers/set',
         payload: data
     }
 }

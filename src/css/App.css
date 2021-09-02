@@ -2,11 +2,39 @@ header {
   width: 100%;
   background: rebeccapurple;
   color: whitesmoke;
-  padding: 1rem;
+  padding: 1rem 0;
   margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 30% 30% 20% 20%;
+  place-items: center;
 }
 header h1 {
   margin: 0;
+  margin-left: 1rem;
+  grid-column: 1/span 1;
+  justify-self: flex-start;
+}
+header form {
+  grid-column: 2/span 1;
+}
+header form input[type=text] {
+  border-right: none;
+  margin-right: 0;
+}
+header form input[type=submit] {
+  border-left: none;
+  outline: none;
+  margin-left: 0;
+}
+header .btnBox {
+  width: 100%;
+  grid-column: 4/span 1;
+  display: flex;
+  justify-content: space-around;
+}
+header .btnBox button {
+  padding: 0.25em 0.5em;
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=App.css.map */

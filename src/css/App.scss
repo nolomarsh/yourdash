@@ -2,10 +2,42 @@ header {
     width: 100%;
     background: rebeccapurple;
     color: whitesmoke;
-    padding: 1rem;
+    padding: 1rem 0;
     margin-bottom: .5rem;
-    
-    h1{
+    display: grid;
+    grid-template-columns: 30% 30% 20% 20%;
+    place-items: center;
+
+    h1 {
         margin: 0;
+        margin-left: 1rem;
+        grid-column: 1 / span 1;
+        justify-self: flex-start;
+    }
+
+    form {
+        grid-column: 2 / span 1;
+
+        input[type='text'] {
+            border-right: none;
+            margin-right: 0;
+        }
+        input[type='submit'] {
+            border-left: none;
+            outline: none;
+            margin-left: 0;
+        }
+    }
+
+    .btnBox {
+        width: 100%;
+        grid-column: 4 / span 1;
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            padding: .25em .5em;
+            font-size: 1rem;
+        }
     }
 }
