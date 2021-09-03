@@ -1,11 +1,16 @@
 * {
   font-family: "Oswald", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: linen;
 }
 
 header {
   width: 100%;
   background: rgba(0, 0, 0, 0.5);
-  color: whitesmoke;
+  color: linen;
   padding: 1rem 0;
   margin-bottom: 0.5rem;
   display: grid;
@@ -38,7 +43,6 @@ header .btnBox button {
 .landing {
   position: absolute;
   top: 0;
-  background-image: url("../images/fish.jpeg");
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -63,6 +67,61 @@ header .btnBox button {
   font-size: 1rem;
 }
 
+.allRestaurants {
+  padding: 1rem;
+}
+.allRestaurants h1 {
+  text-align: center;
+}
+
+.restaurantsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurantCard {
+  background: rgba(250, 240, 230, 0);
+  width: 21%;
+  max-width: 225px;
+  margin: 0.5rem 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.1s;
+  border-radius: 0.5rem;
+}
+.restaurantCard img {
+  width: 100%;
+  height: 125px;
+}
+.restaurantCard .cardBody {
+  padding: 0.25rem 0.5rem;
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 100%;
+  height: 100px;
+}
+.restaurantCard .cardBody h3 {
+  margin: 0 5%;
+  text-align: center;
+  width: 90%;
+  border-bottom: 1px solid #003049;
+  font-size: 1rem;
+}
+.restaurantCard .cardBody p {
+  margin: 0;
+  font-size: 0.8em;
+}
+.restaurantCard .cardBody button {
+  font-size: 0.8em;
+}
+
+.restaurantCard:hover {
+  transform: scale(1.05);
+}
+
 .showRestaurant {
   padding: 0 1rem;
 }
@@ -70,12 +129,18 @@ header .btnBox button {
   text-align: center;
 }
 .showRestaurant details {
-  border: 1px solid black;
+  border: 1px solid #003049;
+  background: #FCBF49;
   border-radius: 0.5em;
   padding: 0.5em;
+  margin: 0.25em;
+}
+.showRestaurant details h3 {
+  margin-bottom: 0;
 }
 .showRestaurant details p {
   margin-left: 1em;
+  margin-top: 0;
 }
 
 .roundBar input[type=text] {
@@ -89,6 +154,13 @@ header .btnBox button {
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
   padding: 0.5em;
+}
+
+button {
+  background: #F77F00;
+  outline: none;
+  border-color: #cc6d09;
+  border-radius: 1em;
 }
 
 /*# sourceMappingURL=App.css.map */

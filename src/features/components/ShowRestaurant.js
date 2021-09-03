@@ -5,6 +5,7 @@ import { setCurrentView } from '../currentView/currentViewSlice.js'
 const ShowRestaurant = props => {
     const dispatch = useDispatch()
     const restaurant = props.restaurant
+    const address = restaurant.address
     const [menuView, setMenuView] = useState(0)
 
     const returnToIndex = () => {
@@ -20,6 +21,7 @@ const ShowRestaurant = props => {
         <div className='showRestaurant'>
             <h1>{restaurant.restaurant_name}</h1>
             <button onClick={returnToIndex}>back</button>
+            <p>{address.street} {address.city[0]+address.city.slice(1).toLowerCase()}, {address.state} {address.postal_code}</p>
             <select onChange={selectChangeHandler}>
                 {restaurant.menus.map((menu, index) => {
                     return(

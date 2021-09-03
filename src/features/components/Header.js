@@ -47,6 +47,7 @@ const Header = () => {
     const logOut = () => {
         dispatch(setCurrentUser({}))
         localStorage.removeItem('currentUser')
+        dispatch(setCurrentView('home'))
     }
 
     const viewChangeHandler = e => {
@@ -64,7 +65,7 @@ const Header = () => {
 
     return (
         <header
-            style={currentView !== 'home' ? {background: 'rebeccapurple'} : {}}
+            style={currentView !== 'home' ? {background: '#003049'} : {}}
         >
             <h1 onClick={()=>{dispatch(setCurrentView('home'))}}>YourDash</h1>
             <form className='roundBar' onSubmit={handleZipSubmit}>

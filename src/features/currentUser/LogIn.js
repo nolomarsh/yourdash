@@ -20,11 +20,11 @@ const LogIn = () => {
             .post('https://yourdash-api.herokuapp.com/users/login', loginData)
             .then((response) => {
                 if (response.data){
-                    dispatch(setCurrentUser(response.data))
                     dispatch(setCurrentZip(response.data.zipCode))
+                    dispatch(setCurrentView('allRestaurants'))
+                    dispatch(setCurrentUser(response.data))
                     localStorage.setItem('currentUser', JSON.stringify(response.data))
                     setErrorMessage('')
-                    dispatch(setCurrentView('allRestaurants'))
                 } else {
                     setErrorMessage('We have no user with that username/password combination')
                 }
