@@ -5,7 +5,7 @@ import Documenu from 'documenu'
 import { selectCurrentView, setCurrentView } from '../currentView/currentViewSlice.js'
 import { selectCurrentZip, setCurrentZip } from "../currentZip/currentZipSlice.js"
 import { selectCurrentUser, setCurrentUser } from '../currentUser/currentUserSlice.js'
-import { setRestaurantsByZip } from '../allRestaurants/allRestaurantsSlice.js'
+import { getRestaurantsByZip, setRestaurants, extendRestaurants } from '../allRestaurants/allRestaurantsSlice.js'
 
 const Header = () => {
     Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
@@ -21,10 +21,26 @@ const Header = () => {
         setNewZip(e.target.value)
     }
 
+    const getRestaurantsByZip = (zipCode, page = 1) => {
+        Documenu.Restaurants.getByZipCode(zipCode, {fullmenu: true, page: page})
+        .then((response) => {
+            if (page === 1) {
+                dispatch(setRestaurants(response.data))
+                console.log(response)
+            } else if (page > 1){
+                dispatch(extendRestaurants(response.data))
+                console.log(response)
+            }
+            // if(response.more_pages){
+            //     getRestaurantsByZip(zipCode, page+1)
+            // }
+        })
+    }
+
     const handleZipSubmit = (e) => {
         e.preventDefault()
         dispatch(setCurrentZip(newZip))
-        setRestaurantsByZip(newZip, dispatch)
+        getRestaurantsByZip(newZip)
         e.target.reset()
     }
 
@@ -47,9 +63,11 @@ const Header = () => {
     },[])
 
     return (
-        <header>
-            <h1>YourDash</h1>
-            <form onSubmit={handleZipSubmit}>
+        <header
+            style={currentView !== 'home' ? {background: 'rebeccapurple'} : {}}
+        >
+            <h1 onClick={()=>{dispatch(setCurrentView('home'))}}>YourDash</h1>
+            <form className='roundBar' onSubmit={handleZipSubmit}>
                 <input type='text' onChange={handleZipChange}/>
                 <input type='submit' value='Search' />
             </form>

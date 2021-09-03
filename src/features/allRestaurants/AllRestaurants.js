@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Documenu from 'documenu'
-import { selectAllRestaurants, setRestaurantsByZip } from './allRestaurantsSlice.js'
+import { selectAllRestaurants, setRestaurants, extendRestaurants } from './allRestaurantsSlice.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCurrentZip } from '../currentZip/currentZipSlice.js'
 
@@ -16,15 +16,24 @@ const AllRestaurants = props => {
 
     Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
 
-    // const getRestaurantsByZip = zipCode => {
-    //     Documenu.Restaurants.getByZipCode(zipCode, {fullmenu: true})
-    //     .then((response) => {
-    //         dispatch(setData(response.data))
-    //     })
-    // }
+    const getRestaurantsByZip = (zipCode, page = 1) => {
+        Documenu.Restaurants.getByZipCode(zipCode, {fullmenu: true, page: page, size: 50})
+        .then((response) => {
+            if (page === 1) {
+                dispatch(setRestaurants(response.data))
+                console.log(response)
+            } else {
+                dispatch(extendRestaurants(response.data))
+                console.log(response)
+            }
+            // if(response.more_pages){
+            //     getRestaurantsByZip(zipCode, page+1)
+            // }
+        })
+    }
 
     useEffect(() => {
-        setRestaurantsByZip(currentZip, dispatch)
+        getRestaurantsByZip(currentZip)
     }, [])
 
     return (

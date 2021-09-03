@@ -1,30 +1,27 @@
+* {
+  font-family: "Oswald", sans-serif;
+}
+
 header {
   width: 100%;
-  background: rebeccapurple;
+  background: rgba(0, 0, 0, 0.5);
   color: whitesmoke;
   padding: 1rem 0;
   margin-bottom: 0.5rem;
   display: grid;
   grid-template-columns: 30% 30% 20% 20%;
   place-items: center;
+  z-index: 5;
 }
 header h1 {
   margin: 0;
   margin-left: 1rem;
   grid-column: 1/span 1;
   justify-self: flex-start;
+  cursor: pointer;
 }
 header form {
   grid-column: 2/span 1;
-}
-header form input[type=text] {
-  border-right: none;
-  margin-right: 0;
-}
-header form input[type=submit] {
-  border-left: none;
-  outline: none;
-  margin-left: 0;
 }
 header .btnBox {
   width: 100%;
@@ -35,6 +32,48 @@ header .btnBox {
 header .btnBox button {
   padding: 0.25em 0.5em;
   font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.landing {
+  position: absolute;
+  top: 0;
+  background-image: url("../images/fish.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.landing .middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+}
+.landing .middle h2 {
+  margin-top: 0;
+}
+.landing .middle input {
+  font-size: 1rem;
+}
+
+.roundBar input[type=text] {
+  border-right: none;
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  padding: 0.5em;
+}
+.roundBar input[type=submit] {
+  border-left: none;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  padding: 0.5em;
 }
 
 /*# sourceMappingURL=App.css.map */

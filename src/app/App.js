@@ -7,6 +7,7 @@ import axios from 'axios'
 import Header from '../features/components/Header'
 import SignUp from '../features/allUsers/SignUp'
 import LogIn from '../features/currentUser/LogIn'
+import Landing from '../features/components/Landing'
 import AllRestaurants from '../features/allRestaurants/AllRestaurants'
 import ShowRestaurant from '../features/components/ShowRestaurant'
 
@@ -26,6 +27,9 @@ const App = (props) => {
         <>
         <Header />
         <main>
+            {currentView === 'home' &&
+                <Landing />
+            }
             {currentView === 'login' &&
                 <LogIn />
             }

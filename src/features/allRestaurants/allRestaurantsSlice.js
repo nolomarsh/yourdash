@@ -6,7 +6,7 @@ export const allRestaurantsReducer = (allRestaurants = initialState, action) => 
     switch(action.type) {
         case 'allRestaurants/set':
             return action.payload
-        case 'allrestaurants/extend':
+        case 'allRestaurants/extend':
             return [...allRestaurants, ...action.payload]
         default:
             return allRestaurants
