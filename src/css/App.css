@@ -63,6 +63,21 @@ header .btnBox button {
   font-size: 1rem;
 }
 
+.showRestaurant {
+  padding: 0 1rem;
+}
+.showRestaurant h1 {
+  text-align: center;
+}
+.showRestaurant details {
+  border: 1px solid black;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+.showRestaurant details p {
+  margin-left: 1em;
+}
+
 .roundBar input[type=text] {
   border-right: none;
   border-top-left-radius: 1em;

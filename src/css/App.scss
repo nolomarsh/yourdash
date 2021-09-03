@@ -72,6 +72,24 @@ header {
     }
 }
 
+.showRestaurant {
+    padding: 0 1rem;
+
+    h1 {
+        text-align: center;
+    }
+
+    details {
+        border: 1px solid black;
+        border-radius: .5em;
+        padding: .5em;
+
+        p {
+            margin-left: 1em;
+        }
+    }
+}
+
 .roundBar {
     input[type='text']{
         border-right: none;

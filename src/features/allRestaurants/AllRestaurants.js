@@ -21,10 +21,8 @@ const AllRestaurants = props => {
         .then((response) => {
             if (page === 1) {
                 dispatch(setRestaurants(response.data))
-                console.log(response)
             } else {
                 dispatch(extendRestaurants(response.data))
-                console.log(response)
             }
             // if(response.more_pages){
             //     getRestaurantsByZip(zipCode, page+1)
