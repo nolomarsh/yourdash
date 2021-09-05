@@ -21,7 +21,7 @@ const Landing = () => {
     }
 
     useEffect(() => {
-        setBackgroundStyle({backgroundImage: 'url(' + randomImageUrl() + ')'})
+        setBackgroundStyle({backgroundImage: 'url(' + randomBackgroundUrl() + ')'})
     },[])
 
     return (

@@ -92,13 +92,17 @@ header {
 
 .restaurantsContainer{
     display: flex;
-    flex-wrap: wrap;
-}
+    overflow: auto;
 
+}
+::-webkit-scrollbar {
+    display: none;
+}
 .restaurantCard {
     background: rgba(linen, 0);
     width: 21%;
-    max-width: 225px;
+    min-width: 200px;
+    max-width: 250px;
     margin: .5rem 1%;
 
     display: flex;
