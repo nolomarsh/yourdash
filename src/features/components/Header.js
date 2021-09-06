@@ -50,6 +50,7 @@ const Header = () => {
                     <>
                         <button onClick={logOut}>Log Out</button>
                         <button name='allRestaurants' onClick={viewChangeHandler}>Restaurants</button>
+                        <button name='cart' onClick={viewChangeHandler}>Cart</button>
                     </>
                     :
                     <>

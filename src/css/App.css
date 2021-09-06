@@ -144,6 +144,9 @@ header .btnBox button {
 .showRestaurant h1 {
   text-align: center;
 }
+.showRestaurant a {
+  color: inherit;
+}
 .showRestaurant .btnBox button {
   margin: 0.5rem 0.25rem;
 }
@@ -172,6 +175,33 @@ header .btnBox button {
 }
 .showRestaurant .menu p {
   margin-left: 1em;
+}
+
+.shoppingCart table {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 1.25em;
+  text-align: left;
+  border-collapse: collapse;
+}
+.shoppingCart table tr {
+  border-bottom: 1px solid #003049;
+}
+.shoppingCart table tr th, .shoppingCart table tr td {
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+.shoppingCart table tr:first-of-type {
+  background: #F77F00;
+}
+.shoppingCart table tr:first-of-type th:first-child {
+  border-top-left-radius: 0.5rem;
+}
+.shoppingCart table tr:first-of-type th:last-child {
+  border-top-right-radius: 0.5rem;
+}
+.shoppingCart table .total {
+  padding-left: 0.5rem;
 }
 
 .roundBar {

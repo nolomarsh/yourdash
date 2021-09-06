@@ -8,6 +8,7 @@ import LogIn from '../features/currentUser/LogIn'
 import Landing from '../features/components/Landing'
 import AllRestaurants from '../features/allRestaurants/AllRestaurants'
 import ShowRestaurant from '../features/components/ShowRestaurant'
+import ShoppingCart from '../features/shoppingCart/ShoppingCart'
 
 // import { selectCurrentZip } from '../features/currentZip/currentZipSlice.js'
 import { selectCurrentView } from '../features/currentView/currentViewSlice.js'
@@ -38,6 +39,9 @@ const App = (props) => {
                 <AllRestaurants
                     setShowRestaurant={setShowRestaurant}
                 />
+            }
+            {currentView === 'cart' &&
+                <ShoppingCart />
             }
             {currentView === 'showRestaurant' && allRestaurants.length > 0 &&
                 <ShowRestaurant

@@ -6,6 +6,7 @@ import { currentViewReducer } from '../features/currentView/currentViewSlice.js'
 // import { currentZipReducer } from '../features/currentZip/currentZipSlice.js'
 import { searchParamsReducer } from '../features/searchParams/searchParamsSlice.js'
 import { currentAddressReducer } from '../features/currentAddress/currentAddressSlice.js'
+import { shoppingCartReducer } from '../features/shoppingCart/shoppingCartSlice.js'
 
 export const store = createStore(combineReducers({
     allUsers: allUsersReducer,
@@ -14,5 +15,6 @@ export const store = createStore(combineReducers({
     currentView: currentViewReducer,
     // currentZip: currentZipReducer,
     searchParams: searchParamsReducer,
-    currentAddress: currentAddressReducer
+    currentAddress: currentAddressReducer,
+    shoppingCart: shoppingCartReducer
 }),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

@@ -170,6 +170,9 @@ header {
     h1 {
         text-align: center;
     }
+    a {
+        color: inherit;
+    }
 
     .btnBox button {
         margin: .5rem .25rem;
@@ -206,6 +209,41 @@ header {
             margin-left: 1em;
             // margin-top: 0;
         }
+    }
+}
+
+.shoppingCart {
+    table {
+        width: 40%;
+        margin: 0 auto;
+        font-size: 1.25em;
+        text-align: left;
+        border-collapse: collapse;
+
+        tr {
+            border-bottom: 1px solid $deep-blue;
+
+            th, td {
+                padding: .25rem .5rem;
+                text-align: center;
+            }
+            &:first-of-type {
+                background: $orange;
+                th {
+                    &:first-child {
+                        border-top-left-radius: .5rem;
+                    }
+                    &:last-child {
+                        border-top-right-radius: .5rem;
+                    }
+                }
+            }
+        }
+
+        .total {
+            padding-left: .5rem;
+        }
+
     }
 }
 
