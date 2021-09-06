@@ -40,7 +40,7 @@ header .btnBox button {
   font-family: "Open Sans", sans-serif;
 }
 
-.landing {
+.landing, .login, .signup {
   position: absolute;
   top: 0;
   background-size: cover;
@@ -51,7 +51,7 @@ header .btnBox button {
   justify-content: center;
   align-items: center;
 }
-.landing .middle {
+.landing .middle, .login .middle, .signup .middle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,10 +60,10 @@ header .btnBox button {
   border-radius: 1rem;
   background: rgba(0, 0, 0, 0.7);
 }
-.landing .middle h2 {
+.landing .middle h2, .login .middle h2, .signup .middle h2 {
   margin-top: 0;
 }
-.landing .middle input {
+.landing .middle input, .login .middle input, .signup .middle input {
   font-size: 1rem;
 }
 

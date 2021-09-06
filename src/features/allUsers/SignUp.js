@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 
 // import { setCurrentView } from '../currentView/currentViewSlice.js'
-import { setCurrentZip } from '../currentZip/currentZipSlice.js'
+// import { setCurrentZip } from '../currentZip/currentZipSlice.js'
+import { setAddress } from '../currentAddress/currentAddressSlice.js'
 import { setCurrentUser } from '../currentUser/currentUserSlice.js'
 import { selectAllUsers, setUsers, addUser } from './allUsersSlice.js'
 import { setCurrentView } from '../currentView/currentViewSlice.js'
+import { randomBackgroundUrl } from '../../images/images.js'
 
 const SignUp = () => {
     const dispatch = useDispatch()
@@ -15,6 +17,7 @@ const SignUp = () => {
     const [newUser, setNewUser] = useState({})
     const [confirmPassword, setConfirmPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const [backgroundStyle, setBackgroundStyle] = useState({})
 
     const formChangeHandler = e => {
         setNewUser({...newUser, [e.target.name]:e.target.value})
@@ -32,7 +35,7 @@ const SignUp = () => {
                 .then((response) => {
                         dispatch(addUser(response.data))
                         dispatch(setCurrentUser(response.data))
-                        dispatch(setCurrentZip(response.data.zipCode))
+                        dispatch(setAddress(response.data.streetAddress))
                         setErrorMessage('')
                         setCurrentView('allRestaurants')
                         localStorage.setItem('currentUser', JSON.stringify(response.data))
@@ -56,16 +59,16 @@ const SignUp = () => {
 
     useEffect(() => {
         loadUsers()
+        setBackgroundStyle({backgroundImage: 'url(' + randomBackgroundUrl() + ')'})
     },[])
 
     return (
-        <div className='signup'>
-            <form onSubmit={signupFormSubmitHandler}>
+        <div className='signup' style={backgroundStyle}>
+            <form onSubmit={signupFormSubmitHandler} className='middle'>
                 <label>Username: <input type='text' name='username' onChange={formChangeHandler} required /></label>
                 <label>Password: <input type='password' name='password' onChange={formChangeHandler} required /></label>
                 <label>Password: <input type='password' onChange={confirmPasswordHandler} required /></label>
-                <label>Street Address: <input type='text' name='streetAddress' onChange={formChangeHandler} /></label>
-                <label>Zip Code: <input type='number' name='zipCode' onChange={formChangeHandler} required /></label>
+                <label>Street Address: <input type='text' name='streetAddress' onChange={formChangeHandler} required /></label>
                 <input type='submit' value='Sign Up'/>
             </form>
             <p>{errorMessage}</p>
