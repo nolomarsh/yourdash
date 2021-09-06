@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import '../css/App.css'
-import Documenu from 'documenu'
-import axios from 'axios'
 
 import Header from '../features/components/Header'
 import SignUp from '../features/allUsers/SignUp'
@@ -14,7 +12,7 @@ import ShowRestaurant from '../features/components/ShowRestaurant'
 // import { selectCurrentZip } from '../features/currentZip/currentZipSlice.js'
 import { selectCurrentView } from '../features/currentView/currentViewSlice.js'
 import { selectAllRestaurants } from '../features/allRestaurants/allRestaurantsSlice.js'
-import { loadUsers } from '../features/allUsers/allUsersSlice.js'
+// import { loadUsers } from '../features/allUsers/allUsersSlice.js'
 
 const App = (props) => {
     const { state, dispatch } = props

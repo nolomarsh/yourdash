@@ -63,13 +63,17 @@ const SignUp = () => {
     },[])
 
     return (
-        <div className='signup' style={backgroundStyle}>
+        <div className='signup background' style={backgroundStyle}>
             <form onSubmit={signupFormSubmitHandler} className='middle'>
-                <label>Username: <input type='text' name='username' onChange={formChangeHandler} required /></label>
-                <label>Password: <input type='password' name='password' onChange={formChangeHandler} required /></label>
-                <label>Password: <input type='password' onChange={confirmPasswordHandler} required /></label>
-                <label>Street Address: <input type='text' name='streetAddress' onChange={formChangeHandler} required /></label>
-                <input type='submit' value='Sign Up'/>
+                <label htmlFor='username'>Username: </label>
+                <input id='username' type='text' name='username' onChange={formChangeHandler} required />
+                <label htmlFor='password'>Password: </label>
+                <input id='password' type='password' name='password' onChange={formChangeHandler} required />
+                <label htmlFor='confirmPassword'>Password: </label>
+                <input id='confirmPassword' type='password' onChange={confirmPasswordHandler} required />
+                <label htmlFor='address'>Street Address: </label>
+                <input id='address' type='text' name='streetAddress' onChange={formChangeHandler} required />
+                <input type='submit' className='button' value='Sign Up'/>
             </form>
             <p>{errorMessage}</p>
         </div>

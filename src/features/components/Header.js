@@ -1,19 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Documenu from 'documenu'
-import axios from 'axios'
 
 import SearchBar from '../searchParams/SearchBar'
 
 import { selectCurrentView, setCurrentView } from '../currentView/currentViewSlice.js'
-import { selectCurrentZip, setCurrentZip } from "../currentZip/currentZipSlice.js"
+// import { selectCurrentZip, setCurrentZip } from "../currentZip/currentZipSlice.js"
 import { selectCurrentUser, setCurrentUser } from '../currentUser/currentUserSlice.js'
 import { selectSearchParams, setCoords} from '../searchParams/searchParamsSlice.js'
 import { getRestaurantsByZip, setRestaurants, extendRestaurants } from '../allRestaurants/allRestaurantsSlice.js'
 import { selectCurrentAddress, setAddress } from '../currentAddress/currentAddressSlice.js'
 
 const Header = () => {
-    Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
+    // Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
 
     const currentView = useSelector(selectCurrentView)
     // const currentZip = useSelector(selectCurrentZip)
@@ -49,7 +47,10 @@ const Header = () => {
             <SearchBar />
             <div className='btnBox'>
                 {currentUser.username ?
-                    <button onClick={logOut}>Log Out</button>
+                    <>
+                        <button onClick={logOut}>Log Out</button>
+                        <button name='allRestaurants' onClick={viewChangeHandler}>Restaurants</button>
+                    </>
                     :
                     <>
                         <button name='login' onClick={viewChangeHandler}>Log In</button>

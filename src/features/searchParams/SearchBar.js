@@ -4,7 +4,7 @@ import axios from 'axios'
 import Documenu from 'documenu'
 
 import { selectSearchParams, setCoords } from './searchParamsSlice.js'
-import { selectCurrentAddress, setAddress } from '../currentAddress/currentAddressSlice.js'
+import { setAddress } from '../currentAddress/currentAddressSlice.js'
 import { setRestaurants, extendRestaurants } from '../allRestaurants/allRestaurantsSlice.js'
 import { setCurrentView } from '../currentView/currentViewSlice.js'
 
@@ -12,7 +12,7 @@ import { setCurrentView } from '../currentView/currentViewSlice.js'
 const SearchBar = () => {
     const dispatch = useDispatch()
     const searchParams = useSelector(selectSearchParams)
-    const currentAddress = useSelector(selectCurrentAddress)
+    // const currentAddress = useSelector(selectCurrentAddress)
 
     const [newAddress, setNewAddress] = useState('')
 

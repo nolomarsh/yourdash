@@ -27,7 +27,6 @@ const LogIn = () => {
                     dispatch(setCurrentView('allRestaurants'))
                     dispatch(setCurrentUser(response.data))
                     localStorage.setItem('currentUser', JSON.stringify(response.data))
-                    setErrorMessage('')
                 } else {
                     setErrorMessage('We have no user with that username/password combination')
                 }
@@ -41,11 +40,13 @@ const LogIn = () => {
     }, [])
 
     return (
-        <div className='login' style={backgroundStyle}>
+        <div className='login background' style={backgroundStyle}>
             <form className='middle' onSubmit={loginFormSubmitHandler}>
-                <label>Username: <input type='text' name='username' onChange={formChangeHandler} required /></label>
-                <label>Password: <input type='text' name='password' onChange={formChangeHandler} required /></label>
-                <input type='submit' value='Log In'/>
+                <label htmlFor='username'>Username: </label>
+                <input type='text' name='username' id='username' onChange={formChangeHandler} required />
+                <label htmlFor='password'>Password: </label>
+                <input type='password' name='password' id='password' onChange={formChangeHandler} required />
+                <input type='submit' className='button' value='Log In'/>
             </form>
             <p>{errorMessage}</p>
         </div>
