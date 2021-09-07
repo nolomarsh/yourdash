@@ -24,7 +24,7 @@ const ShowRestaurant = props => {
 
     return (
         <div className='showRestaurant'>
-            <h1>{restaurant.restaurant_name}</h1>
+            <h1 id='top'>{restaurant.restaurant_name}</h1>
             <p>Address: {address.street} {address.city[0]+address.city.slice(1).toLowerCase()}, {address.state} {address.postal_code}</p>
             <p>Phone: {restaurant.restaurant_phone}</p>
             {restaurant.restaurant_website &&
@@ -47,7 +47,7 @@ const ShowRestaurant = props => {
             </div>
             {restaurant.menus[menuView].menu_sections.map((section, index) => {
                 return(
-                    <MenuSection key={index} section={section} />
+                    <MenuSection key={index} section={section} scrollButtonHandler={scrollButtonHandler}/>
                 )
             })}
         </div>
@@ -65,7 +65,11 @@ const MenuSection = props => {
 
     return (
         <div className='menu' id={section.section_name}>
-            <h2>{section.section_name}</h2>
+            <div className='btnBox'>
+            <h2>{section.section_name} </h2>
+            <button name='top' onClick={props.scrollButtonHandler}>To top</button>
+            </div>
+
             <div className='menuItemContainer'>
                 {section.menu_items.map((item) => {
                     return(
@@ -74,7 +78,7 @@ const MenuSection = props => {
                             <p>{item.description}</p>
                             <button onClick={() => {
                                 handleAddToCart(item.name, item.pricing[0].priceString)
-                            }}>+</button>
+                            }}>Add to Cart</button>
                         </div>
                     )
                 })}

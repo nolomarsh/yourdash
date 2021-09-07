@@ -5,11 +5,9 @@ import { selectAllRestaurants, setRestaurants, extendRestaurants } from './allRe
 import { useSelector, useDispatch } from 'react-redux'
 // import { selectCurrentZip } from '../currentZip/currentZipSlice.js'
 import { selectCurrentAddress } from '../currentAddress/currentAddressSlice.js'
-import { selectSearchParams, setCoords } from '../searchParams/searchParamsSlice.js'
+import { selectSearchParams, setCoords, setDistance } from '../searchParams/searchParamsSlice.js'
 
 import RestaurantCard from './RestaurantCard'
-
-
 
 const AllRestaurants = props => {
     // const [pageNum, setPageNum] = useState(1)
@@ -56,12 +54,20 @@ const AllRestaurants = props => {
             })
     }
 
+    const handleDistanceChange = e => {
+        if (e.target.value >= 1) {
+            dispatch(setDistance(e.target.value))
+            setRestaurantsByCoordinates([searchParams.lon, searchParams.lat], e.target.value)
+        }
+    }
+
     useEffect(() => {
         setRestaurantsByAddress(currentAddress)
     }, [])
 
     return (
         <div className='allRestaurants'>
+            <p>Showing results for {currentAddress} within <input className='smallInput' type='number' placeholder={searchParams.distance} onChange={handleDistanceChange}/> miles</p>
             {cuisinesArray.filter((cuisine) => {return cuisine.matching_docs >= 3 && cuisine.cuisine}).map((cuisine, index) => {
                     return(
                         <>

@@ -16,7 +16,7 @@ import { selectAllRestaurants } from '../features/allRestaurants/allRestaurantsS
 // import { loadUsers } from '../features/allUsers/allUsersSlice.js'
 
 const App = (props) => {
-    const { state, dispatch } = props
+    // const { state, dispatch } = props
     const [showRestaurant, setShowRestaurant] = useState({})
     // const currentZip = useSelector(selectCurrentZip)
     const currentView = useSelector(selectCurrentView)

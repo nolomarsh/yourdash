@@ -9,6 +9,7 @@ import { selectCurrentUser, setCurrentUser } from '../currentUser/currentUserSli
 import { selectSearchParams, setCoords} from '../searchParams/searchParamsSlice.js'
 import { getRestaurantsByZip, setRestaurants, extendRestaurants } from '../allRestaurants/allRestaurantsSlice.js'
 import { selectCurrentAddress, setAddress } from '../currentAddress/currentAddressSlice.js'
+import { selectShoppingCart } from '../shoppingCart/shoppingCartSlice.js'
 
 const Header = () => {
     // Documenu.configure('d51fb5ef4342fbe99b76d644f8000896')
@@ -17,7 +18,9 @@ const Header = () => {
     // const currentZip = useSelector(selectCurrentZip)
     const currentAddress = useSelector(selectCurrentAddress)
     const currentUser = useSelector(selectCurrentUser)
+    const shoppingCart = useSelector(selectShoppingCart)
     const searchParams = useSelector(selectSearchParams)
+
     const dispatch = useDispatch()
 
     const logOut = () => {
@@ -28,6 +31,14 @@ const Header = () => {
 
     const viewChangeHandler = e => {
         dispatch(setCurrentView(e.target.name))
+    }
+
+    const countCartItems = () => {
+        let count = 0
+        for (let item of shoppingCart) {
+            count += item.count
+        }
+        return count
     }
 
     useEffect(() => {
@@ -50,7 +61,7 @@ const Header = () => {
                     <>
                         <button onClick={logOut}>Log Out</button>
                         <button name='allRestaurants' onClick={viewChangeHandler}>Restaurants</button>
-                        <button name='cart' onClick={viewChangeHandler}>Cart</button>
+                        <button name='cart' onClick={viewChangeHandler}>Cart ({countCartItems()})</button>
                     </>
                     :
                     <>

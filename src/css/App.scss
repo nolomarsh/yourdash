@@ -11,7 +11,7 @@ $dirty-white: #EAE2B7;
 }
 
 body {
-    background: linen;
+    background: whitesmoke;
 }
 
 header {
@@ -21,7 +21,7 @@ header {
     padding: 1rem 0;
     margin-bottom: .5rem;
     display: grid;
-    grid-template-columns: 30% 30% 15% 25%;
+    grid-template-columns: 30% 30% 40%;
     place-items: center;
     z-index: 5;
 
@@ -39,14 +39,15 @@ header {
 
     .btnBox {
         width: 100%;
-        grid-column: 4 / span 1;
+        grid-column: 3 / span 1;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
 
         button {
             padding: .25em .5em;
             font-size: 1rem;
             font-family: 'Open Sans', sans-serif;
+            margin: 0 .25rem;
         }
     }
 }
@@ -99,6 +100,10 @@ header {
 
     h1 {
         text-align: center;
+    }
+
+    .smallInput {
+        width: 2rem;
     }
 }
 
@@ -174,8 +179,12 @@ header {
         color: inherit;
     }
 
-    .btnBox button {
-        margin: .5rem .25rem;
+    .btnBox {
+        display: flex;
+        align-items: center;
+        button{
+            margin: .5rem .25rem;
+        }
     }
 
     .menu {
@@ -200,7 +209,9 @@ header {
 
         h2 {
             margin: 0;
+            display: inline;
         }
+
         h3 {
             margin: 0;
         }
@@ -258,6 +269,10 @@ header {
         border-color: $dark-orange;
         width: 60% !important;
         margin-left: 10%;
+
+        &:focus{
+            outline: 0;
+        }
     }
     input[type='submit'] {
         border-left: none;

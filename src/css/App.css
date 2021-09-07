@@ -4,7 +4,7 @@
 }
 
 body {
-  background: linen;
+  background: whitesmoke;
 }
 
 header {
@@ -14,7 +14,7 @@ header {
   padding: 1rem 0;
   margin-bottom: 0.5rem;
   display: grid;
-  grid-template-columns: 30% 30% 15% 25%;
+  grid-template-columns: 30% 30% 40%;
   place-items: center;
   z-index: 5;
 }
@@ -30,14 +30,15 @@ header form {
 }
 header .btnBox {
   width: 100%;
-  grid-column: 4/span 1;
+  grid-column: 3/span 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 header .btnBox button {
   padding: 0.25em 0.5em;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
+  margin: 0 0.25rem;
 }
 
 .background {
@@ -83,6 +84,9 @@ header .btnBox button {
 }
 .allRestaurants h1 {
   text-align: center;
+}
+.allRestaurants .smallInput {
+  width: 2rem;
 }
 
 .restaurantsContainer {
@@ -147,6 +151,10 @@ header .btnBox button {
 .showRestaurant a {
   color: inherit;
 }
+.showRestaurant .btnBox {
+  display: flex;
+  align-items: center;
+}
 .showRestaurant .btnBox button {
   margin: 0.5rem 0.25rem;
 }
@@ -169,6 +177,7 @@ header .btnBox button {
 }
 .showRestaurant .menu h2 {
   margin: 0;
+  display: inline;
 }
 .showRestaurant .menu h3 {
   margin: 0;
@@ -216,6 +225,9 @@ header .btnBox button {
   border-color: #cc6d09;
   width: 60% !important;
   margin-left: 10%;
+}
+.roundBar input[type=text]:focus {
+  outline: 0;
 }
 .roundBar input[type=submit] {
   border-left: none;
