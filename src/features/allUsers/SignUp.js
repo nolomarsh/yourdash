@@ -36,8 +36,7 @@ const SignUp = () => {
                         dispatch(addUser(response.data))
                         dispatch(setCurrentUser(response.data))
                         dispatch(setAddress(response.data.streetAddress))
-                        setErrorMessage('')
-                        setCurrentView('allRestaurants')
+                        dispatch(setCurrentView('allRestaurants'))
                         localStorage.setItem('currentUser', JSON.stringify(response.data))
                     },(error) => {
                         if (allUsers.map(user => user.username).includes(newUser.username)) {

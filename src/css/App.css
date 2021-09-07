@@ -84,6 +84,7 @@ header .btnBox button {
 }
 .allRestaurants h1 {
   text-align: center;
+  margin-bottom: 0;
 }
 .allRestaurants .smallInput {
   width: 2rem;
@@ -100,9 +101,9 @@ header .btnBox button {
 
 .restaurantCard {
   background: rgba(250, 240, 230, 0);
-  width: 21%;
+  width: 200px;
   min-width: 200px;
-  max-width: 250px;
+  max-width: 200px;
   margin: 0.5rem 1%;
   display: flex;
   flex-direction: column;
