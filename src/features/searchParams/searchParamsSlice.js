@@ -1,7 +1,7 @@
 const initialState = {
     lat: null,
     lon: null,
-    distance: 5,
+    distance: 1,
     fullmenu: true,
 }
 

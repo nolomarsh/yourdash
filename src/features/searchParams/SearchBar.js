@@ -41,9 +41,9 @@ const SearchBar = () => {
             } else {
                 dispatch(extendRestaurants(response.data))
             }
-            // if(response.more_pages){
-            //     getRestaurantsByZip(zipCode, page+1)
-            // }
+            if(response.more_pages){
+                setRestaurantsByCoordinates(coords, distance, page+1)
+            }
         })
     }
 
